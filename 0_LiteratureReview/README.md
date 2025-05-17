@@ -1,5 +1,3 @@
-# Literature Review
-
 Literature Review
 Estimation of the Range of an Electric Vehicle Using Machine Learning.
 In recent years, global warming has attracted the attention of several governments across the world. Urban transportation and road traffic has been cited as one of the major factors driving the global CO2 emissions to its astronomically high levels. In 2020, the transport sector was identified to be contributing about 24% of the total global CO2 emission with road vehicles accounting for almost a quarter of that value. The consequences of these emissions are being felt each passing day. As a result of this, the Paris Agreement was adopted in 2015 under the United Nations Framework Convention on Climate Change (UNFCCC) a legally binding international treaty between signed by 196 parties. Its primary goal is to combat global warming and transition to a low-carbon future. In line with these developments, there has been an insurgence in Electric Vehicles as a measure to attain the net zero emission target set by some governments across the world. The International Energy Agency (International Energy Agency, 2024) has indicated that as at 2024, there has been about 17 million EVs sold. They however projected that the number shall rise to about 105 million by 2035. This further highlights the rate at which EVs are becoming a core part of our road transport system.
@@ -31,4 +29,4 @@ International Energy Agency. (2024). Global ev outlook 2024: Moving towards incr
 LIANG ZHAO 1, W. Y. (2020). Machine Learning-Based Method for Remaining Range Prediction of Electric Vehicles. IEEE Access.
 
 
-![image](https://github.com/user-attachments/assets/1a51969d-35cc-4751-a497-e1592994e16f)
+![image](https://github.com/user-attachments/assets/b9a9c54b-62ad-4e41-8574-ebbb4f6545ea)
