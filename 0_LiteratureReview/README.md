@@ -1,33 +1,74 @@
-Literature Review
-Estimation of the Range of an Electric Vehicle Using Machine Learning.
-In recent years, global warming has attracted the attention of several governments across the world. Urban transportation and road traffic has been cited as one of the major factors driving the global CO2 emissions to its astronomically high levels. In 2020, the transport sector was identified to be contributing about 24% of the total global CO2 emission with road vehicles accounting for almost a quarter of that value. The consequences of these emissions are being felt each passing day. As a result of this, the Paris Agreement was adopted in 2015 under the United Nations Framework Convention on Climate Change (UNFCCC) a legally binding international treaty between signed by 196 parties. Its primary goal is to combat global warming and transition to a low-carbon future. In line with these developments, there has been an insurgence in Electric Vehicles as a measure to attain the net zero emission target set by some governments across the world. The International Energy Agency (International Energy Agency, 2024) has indicated that as at 2024, there has been about 17 million EVs sold. They however projected that the number shall rise to about 105 million by 2035. This further highlights the rate at which EVs are becoming a core part of our road transport system.
-These Electric Vehicles rely heavily on Lithium-ion batteries due to their high energy density, long life cycle as well as high operating temperature. There are however some issues which are hindering the penetration of the EVs into the market. These include, battery degradation, cell inconsistencies and thermal runaway during overcharge. The Battery State of Health (SOH) is a measure of the capacity of the battery. However, the precise estimation of the SOH is a quite complex due to the non-linear nature of the battery. The internal chemical reactions result in the formation of Solid Electrolyte Interphase (SEI) films. The uneven load current and thermal distribution further induce cell inconsistency which even cause battery thermal runaway accidents. The level of cell inconsistency can be reflected by the variations in the output energy, terminal voltage, temperature, SOC, etc. Therefore, to some extent these variables may indicate the state of the battery. These battery degradation factors as well as the difficulty in the estimation of SOH has rendered the accurate prediction of the remaining range of an EV quite challenging. This leads to ‘‘range anxiety’’ of drivers, which is defined as the psychological anxiety that drivers suffer from worrying about whether their EV can arrive at the destination before exhausting the battery (LIANG ZHAO 1, 2020). The charging infrastructure of EVs are also now being established in their numbers and hence this further magnifies the issue of range anxiety amongst drivers. It is therefore very important to estimate the remaining range of the EVs to deal with this anxiety issue as well as to make the EVs a dependable means of transport. The range of an EV is conceptually equivalent to the fuel gauge of an Internal Combustion Engine (ICE) vehicle and hence it cannot be underestimated.
-This project focuses on the accurate estimation of the range of EVs using Machine Learning. To predict the remaining range, we usually combine the prediction of the energy consumption rate and the remaining capacity of the battery. The latter is typically represented by the State of Charge (SOC) of the battery. The energy consumption rate is affected by several factor such as the speed, driving patterns, braking frequency, acceleration frequency, battery temperature and even the weight of the vehicle. To estimate the energy consumption rate, some existing work in literature focuses on some external factors such as external temperate which influences the battery’s operation as well as the slope of the road. It is however obvious that it is impossible to comprehensively consider all these external factors making the task of gauging the range of EVs even more daunting. It is worth noting that these factors vary with time as well. There are public data available. These data are composed of (David Albuquerque, 2023) vehicle data and trip data, with mainly two types of features: time-series features, where the data points vary as a function of time; trip-invariant features, in which a given value is kept for the entire trip. Time-series features are usually the SoC, energy consumption, speed, acceleration, and elevation. These time-series data are ordered chronologically The trip-invariant features refer to vehicle information such as battery capacity, average energy consumption (AEC), full battery energy (FBE), full driving distance (FDD) also known as full battery distance (FBD), vehicle weight, trip information such as commute type (city or highway), total energy consumption, and total distance (David Albuquerque, 2023).
+# Literature Review
 
-From existing literature, several Machine Learning models have been used to estimate the range of an EV. These include ; Gradient Boosting Decision Trees (GBDT) which is effective for handling multiple factors and achieving high accuracy. Regression Models: Including linear regression, support vector machines (SVM), and regression trees, suitable for continuous range predictions. Neural Networks: Such as recurrent neural networks (RNNs) and deep neural networks, used for capturing complex temporal and spatial patterns. Hybrid Models: Combinations like Self-Organizing Maps (SOM) with regression trees or ensemble methods (e.g., random forests) to enhance prediction accuracy. Fuzzy Logic and Probabilistic Models: Applied for real-time estimation and modelling uncertainty in dynamic conditions. The training data must be a structured data organized as a time-series or tabular data set. The features normally include numerical variables such as Battery State of Charge (SOC), voltage, current, motor power, vehicle speed, acceleration, temperature, wind speed and road slope. It also contains categorical variables such as the road type (highway, urban etc.), drive train type or driving style (eco-driving, aggressive etc.). Data is often collected from onboard diagnostics (OBD), controller area network (CAN) systems, GPS or external APIs such as weather and traffic. It may also include data argumentation to enhance the real-world dataset maintaining consistency in feature representation. The amount of training data required usually varies. There can be small to medium data sets which includes thousands of trip records often from public sources. There can also be large data set of extensive real world or argumented datasets containing millions of data points covering diverse driving scenarios and conditions for improving the robustness of the model. Currently, the availability of pretrained models specifically for EV range estimation is limited. However, pretrained models in frameworks like TensorFlow and Keras can be fine-tuned for EV range estimation.We can also consider the models used is the referenced papers in our work. Although they are not specific to EV range, they can be adapted with custom data set including vehicle parameters, environmental factors and driving behavior. Some studies suggest using transfer learning with models pretrained on related task such as battery SOC estimation to initialize range prediction models. However, this requires custom adoption to incorporate EV specific features like speed, acceleration and environmental conditions.
+## Estimation of the Range of an Electric Vehicle Using Machine Learning
 
-Summary of the Reviewed Works
-•	Source 1: [A Machine Learning Method for Predicting Driving Range of Battery Electric Vehicles] [Shuai Sun ] (https://onlinelibrary.wiley.com/doi/epdf/10.1155/2019/4109148)
-o	Objective: Develop a gradient boosting decision tree (GBDT) model to predict the driving range of a battery Electric Vehicle (BEVs) with higher accuracy than traditional regression methods.
-o	Methods: The study involved the GBDT algorithm, trained on real-world EV discharge data, incorporating factors like SOC, vehicle speed and environmental conditions with parameters identified using the least square method.
-o	Outcomes: The GBDT outperformed the conventional linear regression model, achieving residual errors between -3.6975 km and 3.3865km, demonstrating improved reliability for real-world driving scenario.
-o	Relation to the Project: This work aligns with our project’s goal of developing an accurate ML model for EV range estimation. The use of GBDT provides a robust approach that can be adapted in our project particularly for handling multiple inputs like SOC, vehicle speed and environmental conditions
-•	Source 2: [Electric vehicles, the future of transportation powered by machine learning: a brief review] https://scholar.google.com/scholar?hl=en&as_sdt=0,5&q=Energy+Informatics+%282024%29+-+Electric+Vehicles,+the+Future+of+Transportation+Powered+by+Machine+Learning%3A+A+Brief+Review&btnG=
-o	Objective: Review ML applications in EV technology, focusing on range estimation and optimization to address energy consumption issues.
-o	Methods: This study analyzed ML algorithms like neural networks and regression models, leveraging historical data, weather and road conditions to predict range and optimize battery usage.
-o	Outcomes: Models integrating environmental and driving data provided more precise range estimations in comparison to traditional methods.
-o	Relation to the Project: This review article offers a broad perspective of ML applications in EV range estimation making it relevant for contextualizing our project. Its discussion of neural networks and regression models as well as the integration of environmental and road condition data informs thee projects choice of algorithms and data sources 
-•	Source 3: [Estimating Electric Vehicle Driving Range with Machine Learning]
-https://scholar.google.com/scholar?hl=en&as_sdt=0,5&q=Ferreira+%282023%29+-+Estimating+Electric+Vehicle+Driving+Range+with+Machine+Learning&btnG=
-o	Objective: It explored ML techniques to estimate driving range using publicly available data to minimize driver anxiety.
-o	Methods: Regression models were trained on a dataset constructed from public sources, incorporating EV specifications and driving conditions evaluated with standard metrics like the RMSE.
-o	Outcomes: The regression model provided smooth and accurate range estimations for both long and short trips reducing the variability seen in heuristic approaches 
-o	Relation to the Project:  This study’s methodology including the evaluation metrices provides a blue  print for our project with regards to our model development and performance assessment.
-Works Cited
-David Albuquerque, A. F. (2023). Estimating Electric Vehicle Driving Range with Machine Learning. scitepress.
-International Energy Agency. (2024). Global ev outlook 2024: Moving towards increased affordability . Retrieved from https://www.iea.org/reports/global-ev-outlook-2024 
-LIANG ZHAO 1, W. Y. (2020). Machine Learning-Based Method for Remaining Range Prediction of Electric Vehicles. IEEE Access.
+In recent years, global warming has attracted the attention of several governments across the world. Urban transportation and road traffic has been cited as one of the major factors driving the global CO2 emissions to its astronomically high levels. In 2020, the transport sector was identified to be contributing about 24% of the total global CO2 emission with road vehicles accounting for almost a quarter of that value. The consequences of these emissions are being felt each passing day.
 
+As a result of this, the Paris Agreement was adopted in 2015 under the United Nations Framework Convention on Climate Change (UNFCCC), a legally binding international treaty signed by 196 parties. Its primary goal is to combat global warming and transition to a low-carbon future. In line with these developments, there has been an insurgence in Electric Vehicles (EVs) as a measure to attain the net-zero emission target set by some governments across the world. The [International Energy Agency (2024)](https://www.iea.org/reports/global-ev-outlook-2024) has indicated that as of 2024, about 17 million EVs have been sold. They project that the number shall rise to about 105 million by 2035, further highlighting the rate at which EVs are becoming a core part of our road transport system.
 
-![image](https://github.com/user-attachments/assets/f863e136-d680-4ec7-8157-b010701feb3f)
+These Electric Vehicles rely heavily on Lithium-ion batteries due to their high energy density, long life cycle, and high operating temperature. However, issues such as battery degradation, cell inconsistencies, and thermal runaway during overcharge hinder market penetration. The Battery State of Health (SOH) is a measure of battery capacity. Precise estimation of SOH is complex due to the non-linear nature of battery behavior. Internal chemical reactions result in the formation of Solid Electrolyte Interphase (SEI) films. Uneven load current and thermal distribution further induce cell inconsistency, potentially causing thermal runaway.
 
+The level of cell inconsistency can be reflected in variations in output energy, terminal voltage, temperature, SOC, etc. These variables can indicate the battery's state. The combination of battery degradation factors and SOH estimation complexity renders accurate EV range prediction challenging. This leads to "range anxiety," the psychological stress drivers experience over whether their EV can reach its destination before depleting the battery ([LIANG ZHAO 1, 2020](https://ieeexplore.ieee.org/document/9102871)).
+
+Although EV charging infrastructure is expanding, range anxiety remains a significant concern. Estimating the remaining range of EVs is crucial to addressing this issue and establishing EVs as a dependable mode of transport. The range of an EV is conceptually equivalent to the fuel gauge in an Internal Combustion Engine (ICE) vehicle.
+
+This project focuses on accurately estimating the range of EVs using Machine Learning (ML). Predicting the remaining range typically involves estimating the energy consumption rate and the remaining battery capacity, represented by the State of Charge (SOC). Factors affecting energy consumption include speed, driving patterns, braking frequency, acceleration, battery temperature, and vehicle weight.
+
+Some literature focuses on external factors like ambient temperature and road slope. However, accounting for all such variables is nearly impossible, and they change over time. Public datasets are available, consisting of [vehicle and trip data](https://www.scitepress.org/Papers/2023/118688/118688.pdf) (David Albuquerque, 2023), with:
+
+* **Time-series features**: SOC, energy consumption, speed, acceleration, elevation
+* **Trip-invariant features**: battery capacity, average energy consumption (AEC), full battery energy (FBE), full driving distance (FDD/FBD), vehicle weight, commute type, total energy consumption, total distance
+
+### Machine Learning Models from Literature
+
+Several ML models have been used to estimate EV range:
+
+* **Gradient Boosting Decision Trees (GBDT)**: Handle multiple inputs and achieve high accuracy
+* **Regression Models**: Linear regression, support vector machines (SVM), regression trees
+* **Neural Networks**: Recurrent (RNNs) and deep neural networks
+* **Hybrid Models**: E.g., Self-Organizing Maps (SOM) with regression trees, ensemble methods (e.g., random forests)
+* **Fuzzy Logic and Probabilistic Models**: For real-time estimation and uncertainty modeling
+
+Training data is structured as time-series or tabular datasets, containing:
+
+* **Numerical variables**: SOC, voltage, current, motor power, speed, acceleration, temperature, wind speed, road slope
+* **Categorical variables**: road type, drivetrain type, driving style
+
+Data is typically collected from onboard diagnostics (OBD), controller area networks (CAN), GPS, or external APIs (weather, traffic). Data augmentation helps maintain consistency in feature representation.
+
+Training datasets vary in size:
+
+* **Small/medium**: Thousands of trips from public sources
+* **Large**: Real-world or augmented data with millions of points across diverse scenarios
+
+Pretrained models specifically for EV range estimation are limited. However, general ML models from frameworks like TensorFlow and Keras can be fine-tuned. Some studies suggest **transfer learning** from related tasks (e.g., SOC estimation), adapted with custom features like speed, acceleration, and environmental conditions.
+
+## Summary of Reviewed Works
+
+### Source 1: [A Machine Learning Method for Predicting Driving Range of Battery Electric Vehicles – Shuai Sun](https://onlinelibrary.wiley.com/doi/epdf/10.1155/2019/4109148)
+
+* **Objective**: Develop a GBDT model for more accurate BEV range prediction.
+* **Methods**: Trained GBDT using real-world discharge data, with SOC, speed, and environmental inputs.
+* **Outcomes**: GBDT outperformed linear regression, achieving residual errors between -3.70 km and +3.39 km.
+* **Relation to Project**: Validates using GBDT for handling multiple inputs in range estimation.
+
+### Source 2: [Electric Vehicles, the Future of Transportation Powered by Machine Learning: A Brief Review](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Energy+Informatics+%282024%29+-+Electric+Vehicles%2C+the+Future+of+Transportation+Powered+by+Machine+Learning%3A+A+Brief+Review&btnG=)
+
+* **Objective**: Review ML applications in EV range estimation and optimization.
+* **Methods**: Analyzed ML models (NNs, regressions) using weather and road data.
+* **Outcomes**: ML models yielded more accurate predictions than traditional methods.
+* **Relation to Project**: Informs model and data source selection with a broad perspective.
+
+### Source 3: [Estimating Electric Vehicle Driving Range with Machine Learning – Ferreira (2023)](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Ferreira+%282023%29+-+Estimating+Electric+Vehicle+Driving+Range+with+Machine+Learning&btnG=)
+
+* **Objective**: Use ML to estimate EV range and reduce driver anxiety.
+* **Methods**: Used regression models with public EV data and standard evaluation metrics (e.g., RMSE).
+* **Outcomes**: Produced smooth, accurate range predictions for short and long trips.
+* **Relation to Project**: Methodology and evaluation framework serve as a blueprint for our model.
+
+## Works Cited
+
+* David Albuquerque, A. F. (2023). *Estimating Electric Vehicle Driving Range with Machine Learning*. Scitepress.
+* [International Energy Agency. (2024). *Global EV Outlook 2024: Moving Towards Increased Affordability*](https://www.iea.org/reports/global-ev-outlook-2024)
+* LIANG ZHAO 1, W. Y. (2020). *Machine Learning-Based Method for Remaining Range Prediction of Electric Vehicles*. IEEE Access.
+/'
