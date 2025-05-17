@@ -8,13 +8,13 @@ As a result of this, the Paris Agreement was adopted in 2015 under the United Na
 
 These Electric Vehicles rely heavily on Lithium-ion batteries due to their high energy density, long life cycle, and high operating temperature. However, issues such as battery degradation, cell inconsistencies, and thermal runaway during overcharge hinder market penetration. The Battery State of Health (SOH) is a measure of battery capacity. Precise estimation of SOH is complex due to the non-linear nature of battery behavior. Internal chemical reactions result in the formation of Solid Electrolyte Interphase (SEI) films. Uneven load current and thermal distribution further induce cell inconsistency, potentially causing thermal runaway.
 
-The level of cell inconsistency can be reflected in variations in output energy, terminal voltage, temperature, SOC, etc. These variables can indicate the battery's state. The combination of battery degradation factors and SOH estimation complexity renders accurate EV range prediction challenging. This leads to "range anxiety," the psychological stress drivers experience over whether their EV can reach its destination before depleting the battery ([LIANG ZHAO 1, 2020](https://ieeexplore.ieee.org/document/9102871)).
+The level of cell inconsistency can be reflected in variations in output energy, terminal voltage, temperature, SOC, etc. These variables can indicate the battery's state. The combination of battery degradation factors and SOH estimation complexity renders accurate EV range prediction challenging. This leads to "range anxiety," the psychological stress drivers experience over whether their EV can reach its destination before depleting the battery (LIANG ZHAO 1, 2020).
 
 Although EV charging infrastructure is expanding, range anxiety remains a significant concern. Estimating the remaining range of EVs is crucial to addressing this issue and establishing EVs as a dependable mode of transport. The range of an EV is conceptually equivalent to the fuel gauge in an Internal Combustion Engine (ICE) vehicle.
 
 This project focuses on accurately estimating the range of EVs using Machine Learning (ML). Predicting the remaining range typically involves estimating the energy consumption rate and the remaining battery capacity, represented by the State of Charge (SOC). Factors affecting energy consumption include speed, driving patterns, braking frequency, acceleration, battery temperature, and vehicle weight.
 
-Some literature focuses on external factors like ambient temperature and road slope. However, accounting for all such variables is nearly impossible, and they change over time. Public datasets are available, consisting of [vehicle and trip data](https://www.scitepress.org/Papers/2023/118688/118688.pdf) (David Albuquerque, 2023), with:
+Some literature focuses on external factors like ambient temperature and road slope. However, accounting for all such variables is nearly impossible, and they change over time. Public datasets are available, consisting of vehicle and trip data (David Albuquerque, 2023), with:
 
 * **Time-series features**: SOC, energy consumption, speed, acceleration, elevation
 * **Trip-invariant features**: battery capacity, average energy consumption (AEC), full battery energy (FBE), full driving distance (FDD/FBD), vehicle weight, commute type, total energy consumption, total distance
@@ -71,4 +71,3 @@ Pretrained models specifically for EV range estimation are limited. However, gen
 * David Albuquerque, A. F. (2023). *Estimating Electric Vehicle Driving Range with Machine Learning*. Scitepress.
 * [International Energy Agency. (2024). *Global EV Outlook 2024: Moving Towards Increased Affordability*](https://www.iea.org/reports/global-ev-outlook-2024)
 * LIANG ZHAO 1, W. Y. (2020). *Machine Learning-Based Method for Remaining Range Prediction of Electric Vehicles*. IEEE Access.
-/'
