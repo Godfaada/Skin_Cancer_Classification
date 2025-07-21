@@ -1,73 +1,44 @@
 # Literature Review
 
-## Estimation of the Range of an Electric Vehicle Using Machine Learning
+## Skin Lesion Classification Using the HAM10000 Dataset
 
-In recent years, global warming has attracted the attention of several governments across the world. Urban transportation and road traffic has been cited as one of the major factors driving the global CO2 emissions to its astronomically high levels. In 2020, the transport sector was identified to be contributing about 24% of the total global CO2 emission with road vehicles accounting for almost a quarter of that value. The consequences of these emissions are being felt each passing day.
+Abstract
+Skin cancer is one of the most common malignancies worldwide, and early detection significantly improves treatment outcomes. The HAM10000 dataset provides over 10,000 dermatoscopic images classified into seven diagnostic categories, enabling the development of automated classification models. This literature review explores recent efforts in skin lesion classification using the HAM10000 dataset, focusing on deep learning techniques, transfer learning, multimodal approaches, attention mechanisms, and ensemble learning. Key challenges and future directions are also discussed.
 
-As a result of this, the Paris Agreement was adopted in 2015 under the United Nations Framework Convention on Climate Change (UNFCCC), a legally binding international treaty signed by 196 parties. Its primary goal is to combat global warming and transition to a low-carbon future. In line with these developments, there has been an insurgence in Electric Vehicles (EVs) as a measure to attain the net-zero emission target set by some governments across the world. The [International Energy Agency (2024)](https://www.iea.org/reports/global-ev-outlook-2024) has indicated that as of 2024, about 17 million EVs have been sold. They project that the number shall rise to about 105 million by 2035, further highlighting the rate at which EVs are becoming a core part of our road transport system.
+## Introduction
 
-These Electric Vehicles rely heavily on Lithium-ion batteries due to their high energy density, long life cycle, and high operating temperature. However, issues such as battery degradation, cell inconsistencies, and thermal runaway during overcharge hinder market penetration. The Battery State of Health (SOH) is a measure of battery capacity. Precise estimation of SOH is complex due to the non-linear nature of battery behavior. Internal chemical reactions result in the formation of Solid Electrolyte Interphase (SEI) films. Uneven load current and thermal distribution further induce cell inconsistency, potentially causing thermal runaway.
+Skin cancer remains a global health concern, with malignant melanoma being particularly deadly if not diagnosed early. Dermoscopy has become a widely adopted technique for skin lesion assessment; however, it requires expert interpretation, which may not always be available. The rise of machine learning and computer vision techniques, particularly deep learning, has prompted efforts to automate the classification of dermoscopic images. The HAM10000 dataset (“Human Against Machine with 10000 training images”) offers a large, diverse, and publicly available resource for developing and benchmarking classification algorithms.
 
-The level of cell inconsistency can be reflected in variations in output energy, terminal voltage, temperature, SOC, etc. These variables can indicate the battery's state. The combination of battery degradation factors and SOH estimation complexity renders accurate EV range prediction challenging. This leads to "range anxiety," the psychological stress drivers experience over whether their EV can reach its destination before depleting the battery (LIANG ZHAO 1, 2020).
+## Deep Learning Approaches
+   
+Convolutional Neural Networks (CNNs) have become the cornerstone of skin lesion classification. Studies leveraging architectures such as ResNet50, DenseNet121, MobileNetV2, and InceptionV3 have demonstrated high performance on HAM10000. Transfer learning, where models pre-trained on large datasets like ImageNet are fine-tuned on HAM10000, has proven especially effective due to the relatively limited size of medical imaging datasets [1].
 
-Although EV charging infrastructure is expanding, range anxiety remains a significant concern. Estimating the remaining range of EVs is crucial to addressing this issue and establishing EVs as a dependable mode of transport. The range of an EV is conceptually equivalent to the fuel gauge in an Internal Combustion Engine (ICE) vehicle.
+## Multimodal and Metadata-Enhanced Models
 
-This project focuses on accurately estimating the range of EVs using Machine Learning (ML). Predicting the remaining range typically involves estimating the energy consumption rate and the remaining battery capacity, represented by the State of Charge (SOC). Factors affecting energy consumption include speed, driving patterns, braking frequency, acceleration, battery temperature, and vehicle weight.
+The HAM10000 dataset includes metadata such as patient age, sex, and lesion location. Recent studies have shown that incorporating this metadata alongside image inputs improves model performance, especially for lesion classes that are difficult to distinguish visually [2].
 
-Some literature focuses on external factors like ambient temperature and road slope. However, accounting for all such variables is nearly impossible, and they change over time. Public datasets are available, consisting of vehicle and trip data (David Albuquerque, 2023), with:
+## Ensemble Learning and Attention Mechanisms
 
-* **Time-series features**: SOC, energy consumption, speed, acceleration, elevation
-* **Trip-invariant features**: battery capacity, average energy consumption (AEC), full battery energy (FBE), full driving distance (FDD/FBD), vehicle weight, commute type, total energy consumption, total distance
+Ensemble learning, which combines multiple models to improve generalization, has also been employed effectively. Attention mechanisms such as Grad-CAM and SE blocks have been used to enhance interpretability and focus the model’s attention on diagnostically relevant regions of an image [3].
 
-### Machine Learning Models from Literature
+##Key Challenges and Research Gaps
 
-Several ML models have been used to estimate EV range:
+Despite promising progress, several challenges persist: class imbalance, inter-class similarity, intra-class variation, and lack of external validation. Techniques like data augmentation, weighted
+loss functions, GAN-based sample generation, and domain adaptation are being explored to address these issues.
 
-* **Gradient Boosting Decision Trees (GBDT)**: Handle multiple inputs and achieve high accuracy
-* **Regression Models**: Linear regression, support vector machines (SVM), regression trees
-* **Neural Networks**: Recurrent (RNNs) and deep neural networks
-* **Hybrid Models**: E.g., Self-Organizing Maps (SOM) with regression trees, ensemble methods (e.g., random forests)
-* **Fuzzy Logic and Probabilistic Models**: For real-time estimation and uncertainty modeling
+## Summary of the Reviewed Works
 
-Training data is structured as time-series or tabular datasets, containing:
+Source 1: Deep Learning for Dermatologist-Level Classification of Skin Cancer
+Objective: To demonstrate that deep convolutional neural networks can classify skin lesions with performance comparable to dermatologists. Methodology: A large dataset, including HAM10000, was used to train an InceptionV3 model. Transfer learning and data augmentation were applied. Key Findings: The CNN matched expert performance in binary classification tasks. The approach demonstrated high accuracy and clinical potential. Relevance: Validates the use of pre-trained CNN models like InceptionV3 for HAM10000 classification tasks [1].
+Source 2: Multimodal Learning Approaches for Skin Lesion Diagnosis
+Objective: To enhance classification performance by integrating image features with clinical metadata. Methodology: A hybrid model combined CNN outputs with structured data. Feature fusion strategies were evaluated. Key Findings: Multimodal models outperformed image-only models. Metadata improved prediction reliability. Relevance: Supports the use of HAM10000 metadata in hybrid classification models [2].
+Source 3: Ensemble and Attention-Based Networks for Skin Lesion Classification
+Objective: To improve classification accuracy and interpretability using ensembles and attention mechanisms. Methodology: An ensemble of CNNs was implemented with Grad-CAM for attention visualization. Key Findings: Ensemble models achieved over 90% accuracy, and attention maps improved interpretability. Relevance: Reinforces the value of ensemble and attention-based models on HAM10000 [3].
 
-* **Numerical variables**: SOC, voltage, current, motor power, speed, acceleration, temperature, wind speed, road slope
-* **Categorical variables**: road type, drivetrain type, driving style
+## Conclusion
 
-Data is typically collected from onboard diagnostics (OBD), controller area networks (CAN), GPS, or external APIs (weather, traffic). Data augmentation helps maintain consistency in feature representation.
-
-Training datasets vary in size:
-
-* **Small/medium**: Thousands of trips from public sources
-* **Large**: Real-world or augmented data with millions of points across diverse scenarios
-
-Pretrained models specifically for EV range estimation are limited. However, general ML models from frameworks like TensorFlow and Keras can be fine-tuned. Some studies suggest **transfer learning** from related tasks (e.g., SOC estimation), adapted with custom features like speed, acceleration, and environmental conditions.
-
-## Summary of Reviewed Works
-
-### Source 1: [A Machine Learning Method for Predicting Driving Range of Battery Electric Vehicles – Shuai Sun](https://onlinelibrary.wiley.com/doi/epdf/10.1155/2019/4109148)
-
-* **Objective**: Develop a GBDT model for more accurate BEV range prediction.
-* **Methods**: Trained GBDT using real-world discharge data, with SOC, speed, and environmental inputs.
-* **Outcomes**: GBDT outperformed linear regression, achieving residual errors between -3.70 km and +3.39 km.
-* **Relation to Project**: Validates using GBDT for handling multiple inputs in range estimation.
-
-### Source 2: [Electric Vehicles, the Future of Transportation Powered by Machine Learning: A Brief Review](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Energy+Informatics+%282024%29+-+Electric+Vehicles%2C+the+Future+of+Transportation+Powered+by+Machine+Learning%3A+A+Brief+Review&btnG=)
-
-* **Objective**: Review ML applications in EV range estimation and optimization.
-* **Methods**: Analyzed ML models (NNs, regressions) using weather and road data.
-* **Outcomes**: ML models yielded more accurate predictions than traditional methods.
-* **Relation to Project**: Informs model and data source selection with a broad perspective.
-
-### Source 3: [Estimating Electric Vehicle Driving Range with Machine Learning – Ferreira (2023)](https://scholar.google.com/scholar?hl=en&as_sdt=0%2C5&q=Ferreira+%282023%29+-+Estimating+Electric+Vehicle+Driving+Range+with+Machine+Learning&btnG=)
-
-* **Objective**: Use ML to estimate EV range and reduce driver anxiety.
-* **Methods**: Used regression models with public EV data and standard evaluation metrics (e.g., RMSE).
-* **Outcomes**: Produced smooth, accurate range predictions for short and long trips.
-* **Relation to Project**: Methodology and evaluation framework serve as a blueprint for our model.
-
-## Works Cited
-
-* David Albuquerque, A. F. (2023). *Estimating Electric Vehicle Driving Range with Machine Learning*. Scitepress.
-* [International Energy Agency. (2024). *Global EV Outlook 2024: Moving Towards Increased Affordability*](https://www.iea.org/reports/global-ev-outlook-2024)
-* LIANG ZHAO 1, W. Y. (2020). *Machine Learning-Based Method for Remaining Range Prediction of Electric Vehicles*. IEEE Access.
+Automated skin lesion classification using the HAM10000 dataset has made significant strides through CNNs, transfer learning, and hybrid modeling. Incorporating metadata, leveraging ensemble methods, and adopting interpretability tools further improve performance and clinical trust. However, challenges like data imbalance and limited external validation still limit real-world deployment. Future research should aim for fairness, generalization, and seamless integration into clinical workflows.
+References
+[1] A. Esteva et al., “Dermatologist-level classification of skin cancer with deep neural networks,” Nature, vol. 542, no. 7639, pp. 115–118, 2017.
+[2] N. Codella et al., “Skin lesion analysis toward melanoma detection,” IEEE Journal of Biomedical and Health Informatics, vol. 23, no. 2, pp. 501–512, 2019.
+[3] P. Tschandl et al., “Human–computer collaboration for skin cancer recognition,” Nature Medicine, vol. 26, pp. 1229–1234, 2020.
