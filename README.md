@@ -6,7 +6,7 @@
 
 ## Description
 
-[Short project description here. Briefly summarize the problem you are trying to solve and the approach you're taking.]
+Skin cancer remains a global health concern, with malignant melanoma being particularly deadly if not diagnosed early. Dermoscopy has become a widely adopted technique for skin lesion assessment; however, it requires expert interpretation, which may not always be available. We use deep learning to automate the classification of dermoscopic images. 
 
 ### Task Type
 
@@ -14,9 +14,9 @@ Image Classification
 
 ### Results Summary
 
-- **Best Model:** [Name of the best-performing model]
-- **Evaluation Metric:** [e.g., Accuracy, F1-Score, MSE]
-- **Result:** [e.g., 95% accuracy, F1-score of 0.8]
+- **Best Model:** Ensemble MobileNetV2 and EfficientNetBI
+- **Evaluation Metric:** F1-Score
+- **Result:** F1-score of 0.79
 
 ## Documentation
 
