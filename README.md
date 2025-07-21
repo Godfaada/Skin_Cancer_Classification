@@ -1,4 +1,4 @@
-# [Your Project Title Here]
+# Skin Lesion Classification Using the HAM10000 Dataset
 
 ## Repository Link
 
