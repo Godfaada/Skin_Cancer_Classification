@@ -27,12 +27,30 @@ loss functions, GAN-based sample generation, and domain adaptation are being exp
 
 ## Summary of the Reviewed Works
 
-Source 1: Deep Learning for Dermatologist-Level Classification of Skin Cancer
-Objective: To demonstrate that deep convolutional neural networks can classify skin lesions with performance comparable to dermatologists. Methodology: A large dataset, including HAM10000, was used to train an InceptionV3 model. Transfer learning and data augmentation were applied. Key Findings: The CNN matched expert performance in binary classification tasks. The approach demonstrated high accuracy and clinical potential. Relevance: Validates the use of pre-trained CNN models like InceptionV3 for HAM10000 classification tasks [<a href="#ref1">1</a>].
-Source 2: Multimodal Learning Approaches for Skin Lesion Diagnosis
-Objective: To enhance classification performance by integrating image features with clinical metadata. Methodology: A hybrid model combined CNN outputs with structured data. Feature fusion strategies were evaluated. Key Findings: Multimodal models outperformed image-only models. Metadata improved prediction reliability. Relevance: Supports the use of HAM10000 metadata in hybrid classification models [<a href="#ref2">2</a>].
-Source 3: Ensemble and Attention-Based Networks for Skin Lesion Classification
-Objective: To improve classification accuracy and interpretability using ensembles and attention mechanisms. Methodology: An ensemble of CNNs was implemented with Grad-CAM for attention visualization. Key Findings: Ensemble models achieved over 90% accuracy, and attention maps improved interpretability. Relevance: Reinforces the value of ensemble and attention-based models on HAM10000 [<a href="#ref3">3</a>].
+### **Source 1: Deep Learning for Dermatologist-Level Classification of Skin Cancer**
+
+- **Objective:** To demonstrate that deep convolutional neural networks can classify skin lesions with performance comparable to dermatologists.  
+- **Methodology:** A large dataset, including HAM10000, was used to train an InceptionV3 model. Transfer learning and data augmentation were applied.  
+- **Key Findings:** The CNN matched expert performance in binary classification tasks. The approach demonstrated high accuracy and clinical potential.  
+- **Relevance:** Validates the use of pre-trained CNN models like InceptionV3 for HAM10000 classification tasks [<a href="#ref1">1</a>].
+
+---
+
+### **Source 2: Multimodal Learning Approaches for Skin Lesion Diagnosis**
+
+- **Objective:** To enhance classification performance by integrating image features with clinical metadata.  
+- **Methodology:** A hybrid model combined CNN outputs with structured data. Feature fusion strategies were evaluated.  
+- **Key Findings:** Multimodal models outperformed image-only models. Metadata improved prediction reliability.  
+- **Relevance:** Supports the use of HAM10000 metadata in hybrid classification models [<a href="#ref2">2</a>].
+
+---
+
+### **Source 3: Ensemble and Attention-Based Networks for Skin Lesion Classification**
+
+- **Objective:** To improve classification accuracy and interpretability using ensembles and attention mechanisms.  
+- **Methodology:** An ensemble of CNNs was implemented with Grad-CAM for attention visualization.  
+- **Key Findings:** Ensemble models achieved over 90% accuracy, and attention maps improved interpretability.  
+- **Relevance:** Reinforces the value of ensemble and attention-based models on HAM10000 [<a href="#ref3">3</a>].
 
 ## Conclusion
 
