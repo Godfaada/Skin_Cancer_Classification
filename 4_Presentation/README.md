@@ -1,3 +1,3 @@
 # Presentation
 
-**[Slides](name_of_your_file_including_the_presentation_slides)**
+**[Skin Cancer Classification Presentation Slides](20250710%20Machine%20Learning%20Skin%20Cancer%20Classification.pdf)**
