@@ -2,7 +2,7 @@
 
 ## Repository Link
 
-[https://github.com/Godfaada/Skin_Cancer_Classification]
+https://github.com/Godfaada/Skin_Cancer_Classification
 
 ## Description
 
