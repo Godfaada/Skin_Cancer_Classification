@@ -1,3 +1,3 @@
 # Dataset Characteristics
 
-**[Notebook](exploratory_data_analysis.ipynb)**
+**[Notebook](EDA_HAM10000.ipynb)**
